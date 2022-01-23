@@ -5,8 +5,8 @@ const todoListState = atomFamily<string[], string>({
   default: []
 })
 
-const myMultipliedState = selectorFamily<number, string>({
-  key: 'MyMultipliedNumber',
+const todoListLength = selectorFamily<number, string>({
+  key: 'TodoListLength',
   get: (id) => ({get}) => {
     return get(todoListState(id)).length
   }
@@ -16,7 +16,7 @@ const useTodiList = (id: string) => {
 
   const todoList = useRecoilValue(todoListState(id))
   const setTodoList = useSetRecoilState(todoListState(id))
-  const todoLength = useRecoilValue(myMultipliedState(id))
+  const todoLength = useRecoilValue(todoListLength(id))
 
   const addItem = (inputValue: string) => {
     setTodoList((oldTodoList: string[]) => [
