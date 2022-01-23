@@ -15,7 +15,7 @@ const Home: NextPage = () => {
   }
 
   const handleAddItem2 = () => {
-    addItem2(inputValue)
+    addItem2(inputValue2)
     setInputValue2('')
   }
 
